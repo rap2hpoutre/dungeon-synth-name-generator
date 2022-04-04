@@ -10,10 +10,6 @@
 	font-family: 'BreatheFire';
 	src: url('../static/BreatheFire.ttf');
 }
-@font-face {
-	font-family: 'Morris';
-	src: url(https://cdn.statically.io/gh/EmmesCodes/Tipografias/dae9f5bb/MorrisInitials.ttf);
-}
 
 :root {
 	--fontSize: calc((1vw + 1vh) * 0.75);
