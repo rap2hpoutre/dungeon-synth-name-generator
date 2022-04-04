@@ -288,14 +288,15 @@
 					on:click={generate}>Generate a new one</button
 				>
 			</div>
-			<div class="mt-10 container m-auto text-center text-xs">
+			<div class="mt-10 container m-auto text-center text-xs -mb-10">
 				<a
 					class="hover:underline"
 					href="https://github.com/rap2hpoutre/dungeon-synth-name-generator/">Source code</a
 				>
-				-
-				<a class="hover:underline" href="https://rap2h.bandcamp.com/">rap2h</a>
-				& contributors (<a class="hover:underline" href="https://unlicense.org/">unlicensed</a>)
+				- <a class="hover:underline" href="https://rap2h.bandcamp.com/">rap2h</a> (<a
+					class="hover:underline"
+					href="https://unlicense.org/">unlicensed</a
+				>)
 			</div>
 		</div>
 	</div>
