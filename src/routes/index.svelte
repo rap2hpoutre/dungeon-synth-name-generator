@@ -1,8 +1,8 @@
 <script lang="ts">
-	import { beforeUpdate, afterUpdate, onMount } from 'svelte';
+	import { afterUpdate, onMount } from 'svelte';
 	let result: string = 'x';
 	let hidden: boolean = true;
-	function ScrollHeight() {
+	function resizeParchment() {
 		var content = document.querySelector('#parchment') as HTMLElement;
 		var container = document.querySelector('#contain') as HTMLElement;
 
@@ -11,12 +11,12 @@
 		content.style.height = container.offsetHeight + 'px';
 	}
 	afterUpdate(() => {
-		ScrollHeight();
+		resizeParchment();
 		hidden = false;
 	});
 	onMount(() => {
 		generate();
-		ScrollHeight();
+		resizeParchment();
 	});
 
 	const fantasyCreatures = [
@@ -268,14 +268,14 @@
 	}
 </script>
 
-<svelte on:resize={ScrollHeight} />
+<svelte on:resize={resizeParchment} />
 
-<body class="bg-black text-yellow-100">
+<body class="bg-black text-stone-500">
 	<div id="main" class="container m-auto">
 		<div id="parchment" />
 		<div id="contain" class={hidden ? 'invisible' : ''}>
 			<h1
-				class="font-['Blackcastle'] text-xl lg:text-4xl mx-auto text-center w-full text-stone-800"
+				class="font-['Blackcastle'] text-xl lg:text-4xl mx-auto text-center w-full text-stone-800 mt-10"
 			>
 				Dungeon Synth Name Generator
 			</h1>
@@ -287,6 +287,15 @@
 					class="text-stone-800 px-2 py-1 border border-slate-600 bg-stone-300 rounded"
 					on:click={generate}>Generate a new one</button
 				>
+			</div>
+			<div class="mt-10 container m-auto text-center text-xs">
+				<a
+					class="hover:underline"
+					href="https://github.com/rap2hpoutre/dungeon-synth-name-generator/">Source code</a
+				>
+				-
+				<a class="hover:underline" href="https://rap2h.bandcamp.com/">rap2h</a>
+				& contributors (<a class="hover:underline" href="https://unlicense.org/">unlicensed</a>)
 			</div>
 		</div>
 	</div>
