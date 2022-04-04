@@ -279,43 +279,40 @@
 
 <svelte on:resize={resizeParchment} />
 
-<body class="bg-black text-stone-500">
-	<div id="main" class="container m-auto">
-		<div id="parchment" class={parchmentClass} />
-		<div id="contain" class={hidden ? 'invisible' : ''}>
-			<h1
-				class="font-['Blackcastle'] text-xl md:text-4xl mx-auto text-center w-full text-stone-800 mt-12"
+<div id="main" class="container m-auto">
+	<div id="parchment" class={parchmentClass} />
+	<div id="contain" class={hidden ? 'invisible' : ''}>
+		<h1
+			class="font-['Blackcastle'] text-xl md:text-4xl mx-auto text-center w-full text-stone-800 mt-12"
+		>
+			Dungeon Synth Name Generator
+		</h1>
+		<div
+			class="font-['BreatheFire'] text-2xl md:text-6xl my-10 text-amber-900 text-center w-full bg-transparent"
+		>
+			{result}
+		</div>
+		<div class="mx-auto">
+			<button
+				class="text-stone-800 px-2 py-1 border border-slate-600 bg-stone-300 rounded md:text-base text-sm"
+				on:click={generate}>Generate</button
 			>
-				Dungeon Synth Name Generator
-			</h1>
-			<div
-				class="font-['BreatheFire'] text-2xl md:text-6xl my-10 text-amber-900 text-center w-full bg-transparent"
+		</div>
+		<div class="mt-10 container m-auto text-center text-xs -mb-8">
+			<a class="hover:underline" href="https://github.com/rap2hpoutre/dungeon-synth-name-generator/"
+				>Source code</a
 			>
-				{result}
-			</div>
-			<div class="mx-auto">
-				<button
-					class="text-stone-800 px-2 py-1 border border-slate-600 bg-stone-300 rounded md:text-base text-sm"
-					on:click={generate}>Generate</button
-				>
-			</div>
-			<div class="mt-10 container m-auto text-center text-xs -mb-8">
-				<a
-					class="hover:underline"
-					href="https://github.com/rap2hpoutre/dungeon-synth-name-generator/">Source code</a
-				>
-				- <a class="hover:underline" href="https://rap2h.bandcamp.com/">rap2h</a> (<a
-					class="hover:underline"
-					href="https://unlicense.org/">unlicensed</a
-				>)
-			</div>
+			- <a class="hover:underline" href="https://rap2h.bandcamp.com/">rap2h</a> (<a
+				class="hover:underline"
+				href="https://unlicense.org/">unlicensed</a
+			>)
 		</div>
 	</div>
+</div>
 
-	<svg>
-		<filter id="wavy2">
-			<feTurbulence x="0" y="0" baseFrequency="0.02" numOctaves="5" seed="1" />
-			<feDisplacementMap in="SourceGraphic" scale="20" />
-		</filter>
-	</svg>
-</body>
+<svg>
+	<filter id="wavy2">
+		<feTurbulence x="0" y="0" baseFrequency="0.02" numOctaves="5" seed="1" />
+		<feDisplacementMap in="SourceGraphic" scale="20" />
+	</filter>
+</svg>
