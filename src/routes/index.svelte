@@ -284,19 +284,19 @@
 		<div id="parchment" class={parchmentClass} />
 		<div id="contain" class={hidden ? 'invisible' : ''}>
 			<h1
-				class="font-['Blackcastle'] text-xl lg:text-4xl mx-auto text-center w-full text-stone-800 mt-12"
+				class="font-['Blackcastle'] text-xl md:text-4xl mx-auto text-center w-full text-stone-800 mt-12"
 			>
 				Dungeon Synth Name Generator
 			</h1>
 			<div
-				class="font-['BreatheFire'] text-2xl lg:text-6xl my-10 text-amber-900 text-center w-full bg-transparent"
+				class="font-['BreatheFire'] text-2xl md:text-6xl my-10 text-amber-900 text-center w-full bg-transparent"
 			>
 				{result}
 			</div>
 			<div class="mx-auto">
 				<button
-					class="text-stone-800 px-2 py-1 border border-slate-600 bg-stone-300 rounded"
-					on:click={generate}>Generate a new one</button
+					class="text-stone-800 px-2 py-1 border border-slate-600 bg-stone-300 rounded md:text-base text-sm"
+					on:click={generate}>Generate</button
 				>
 			</div>
 			<div class="mt-10 container m-auto text-center text-xs -mb-8">
