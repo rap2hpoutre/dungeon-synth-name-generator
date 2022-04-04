@@ -1,11 +1,12 @@
 <script lang="ts">
 	import { afterUpdate, onMount } from 'svelte';
+	import parser from 'ua-parser-js';
 	let result: string = 'x';
 	let hidden: boolean = true;
+	let parchmentClass = 'with-filter';
 	function resizeParchment() {
 		const content = document.querySelector('#parchment') as HTMLElement;
 		const container = document.querySelector('#contain') as HTMLElement;
-
 		// SVG feTurbulence can modify all others elements, that's why "parchment" is in absolute position.
 		// so for a better effect, absolute height is defined by his content.
 		content.style.height = container.offsetHeight + 'px';
@@ -15,6 +16,14 @@
 		hidden = false;
 	});
 	onMount(() => {
+		const p = parser();
+		if (
+			!(p.browser.name === 'Chrome' && p.browser.major > 91) &&
+			!(p.browser.name === 'Firefox' && p.browser.major > 89) &&
+			!(p.browser.name === 'Edge' && p.browser.major > 91)
+		) {
+			parchmentClass = 'without-filter';
+		}
 		generate();
 		resizeParchment();
 	});
@@ -272,7 +281,7 @@
 
 <body class="bg-black text-stone-500">
 	<div id="main" class="container m-auto">
-		<div id="parchment" />
+		<div id="parchment" class={parchmentClass} />
 		<div id="contain" class={hidden ? 'invisible' : ''}>
 			<h1
 				class="font-['Blackcastle'] text-xl lg:text-4xl mx-auto text-center w-full text-stone-800 mt-12"
