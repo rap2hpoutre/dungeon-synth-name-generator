@@ -3,8 +3,8 @@
 	let result: string = 'x';
 	let hidden: boolean = true;
 	function resizeParchment() {
-		var content = document.querySelector('#parchment') as HTMLElement;
-		var container = document.querySelector('#contain') as HTMLElement;
+		const content = document.querySelector('#parchment') as HTMLElement;
+		const container = document.querySelector('#contain') as HTMLElement;
 
 		// SVG feTurbulence can modify all others elements, that's why "parchment" is in absolute position.
 		// so for a better effect, absolute height is defined by his content.
@@ -275,20 +275,22 @@
 		<div id="parchment" />
 		<div id="contain" class={hidden ? 'invisible' : ''}>
 			<h1
-				class="font-['Blackcastle'] text-xl lg:text-4xl mx-auto text-center w-full text-stone-800 mt-10"
+				class="font-['Blackcastle'] text-xl lg:text-4xl mx-auto text-center w-full text-stone-800 mt-12"
 			>
 				Dungeon Synth Name Generator
 			</h1>
-			<p class="font-['BreatheFire'] text-2xl lg:text-6xl my-10 text-amber-900 text-center w-full">
+			<div
+				class="font-['BreatheFire'] text-2xl lg:text-6xl my-10 text-amber-900 text-center w-full bg-transparent"
+			>
 				{result}
-			</p>
+			</div>
 			<div class="mx-auto">
 				<button
 					class="text-stone-800 px-2 py-1 border border-slate-600 bg-stone-300 rounded"
 					on:click={generate}>Generate a new one</button
 				>
 			</div>
-			<div class="mt-10 container m-auto text-center text-xs -mb-10">
+			<div class="mt-10 container m-auto text-center text-xs -mb-8">
 				<a
 					class="hover:underline"
 					href="https://github.com/rap2hpoutre/dungeon-synth-name-generator/">Source code</a
